@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head />
+<ui:composition>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h:form id="form">
+					<p:growl id="msgs" showDetail="true" />
+
+					<div class="form-group">
+						<h:outputLabel>Naziv dogadjaja:</h:outputLabel>
+						<h:inputText value="${dogadjajBean.naziv}"
+							styleClass="form-control"></h:inputText>
+					</div>
+
+					<div class="form-group">
+						<h:outputLabel>Opis:</h:outputLabel>
+						<h:inputText value="${dogadjajBean.opis}"
+							styleClass="form-control"></h:inputText>
+					</div>
+
+					<div class="form-group">
+						<p:outputLabel for="datetime">Vrijeme odrzavanja: </p:outputLabel>
+						<p:calendar id="datetime" value="#{dogadjajBean.date10}"
+							pattern="dd/MM/yyyy HH:mm:ss" />
+					</div>
+					
+
+					<div class="form-group">
+						<h:outputLabel>Slika(URL):</h:outputLabel>
+						<h:inputText value="${dogadjajBean.slika}"
+							styleClass="form-control"></h:inputText>
+					</div>
+					<div class="form-group">
+					<p:outputLabel for="kategorija" value="Kategorija: " />
+					<p:selectOneMenu id="kategorija" value="#{dogadjajBean.kategorija}">
+						<f:selectItem itemLabel="Izaberi kategoriju" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{dogadjajBean.kategorije}" />
+					</p:selectOneMenu>
+					</div>
+					
+					
+					<div class="text-right">
+					<p:commandButton value="Dodaj dogadjaj" update="msgs" action="#{dogadjajBean.insertDogadaj}" />
+					</div>
+
+				</h:form>
+			</div>
+		</div>
+	</div>
+</ui:composition>
+</html>

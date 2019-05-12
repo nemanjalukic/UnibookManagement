@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head />
+<ui:composition>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h:form id="form">
+					<p:growl id="msgs" showDetail="true" />
+
+					<div class="form-group">
+						<h:outputLabel>Naslov:</h:outputLabel>
+						<h:inputText value="${vijestBean.naslov}"
+							styleClass="form-control"></h:inputText>
+					</div>
+
+					<div class="form-group">
+						<h:outputLabel>Sadrzaj:</h:outputLabel>
+						<h:inputText value="${vijestBean.sadrzaj}"
+							styleClass="form-control"></h:inputText>
+					</div>
+					
+					
+					<div class="text-right">
+					<p:commandButton value="Dodaj vijest" update="msgs" action="#{vijestBean.insertVijest}" />
+					</div>
+
+				</h:form>
+			</div>
+		</div>
+	</div>
+</ui:composition>
+</html>
